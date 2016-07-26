@@ -12,7 +12,7 @@ before_install:
   - if [ "$CXX" = "g++" ]; then export CXX="g++-4.8"; fi
   - $CXX --version
   # for speed, pre-install deps installed in `before_script` section as ubuntu packages
-  - sudo apt-get install -qq cpanminus libipc-signal-perl liblist-moreutils-perl libplack-perl libtest-tcp-perl libscope-guard-perl libwww-perl libio-socket-ssl-perl zlib1g-dev
+  - sudo apt-get install -qq cpanminus libipc-signal-perl liblist-moreutils-perl libplack-perl libfcgi-perl libtest-tcp-perl libscope-guard-perl libwww-perl libio-socket-ssl-perl zlib1g-dev
 
 before_script:
   # install libuv >= 1.0.0 (optionally required for building / testing libh2o)
@@ -32,7 +32,6 @@ before_script:
   - (cd nghttp2-1.4.0 && ./configure --prefix=/usr --disable-threads --enable-app && make && sudo make install)
   - curl -L https://curl.haxx.se/download/curl-7.50.0.tar.gz | tar xzf -
   - (cd curl-7.50.0 && ./configure --prefix=/usr --with-nghttp2 --disable-shared && make && sudo make install)
-  - curl --version
 
 script:
   - cmake -DWITH_MRUBY=ON .
