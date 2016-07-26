@@ -31,7 +31,7 @@ before_script:
   - curl -L https://github.com/tatsuhiro-t/nghttp2/releases/download/v1.4.0/nghttp2-1.4.0.tar.gz | tar xzf -
   - (cd nghttp2-1.4.0 && ./configure --prefix=/usr --disable-threads --enable-app && make && sudo make install)
   - curl -L https://curl.haxx.se/download/curl-7.50.0.tar.gz | tar xzf -
-  - (cd curl-7.50.0 && ./configure --prefix=/usr --with-nghttp2 --disable-shared --disable-static && make && sudo make install)
+  - (cd curl-7.50.0 && ./configure --prefix=/usr --with-nghttp2 --disable-shared && make && sudo make install)
   - curl --version
 
 script:
